@@ -1,0 +1,2 @@
+Quelle: Plaintext-Gmbh/plaintext-demo, Branch main, Commit 6141d18 (17.11.2026), Verzeichnis plaintext-demo-tabelle.
+Verlauf mit git filter-repo --subdirectory-filter plaintext-demo-tabelle uebernommen (Karte 2412).
