@@ -3,19 +3,41 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- Karte 2412: oeffentliches Plaintext-Modul, herausgeloest aus plaintext-demo (plaintext-demo-tabelle).
+         Parent = root-v2, alle root-Teile "provided": die Anwendung, in die das Modul kommt, bringt sie mit. -->
     <parent>
-        <groupId>ch.plaintext.demo</groupId>
-        <artifactId>plaintext-demo-parent</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <groupId>ch.plaintext.v2</groupId>
+        <artifactId>plaintext-root-parent</artifactId>
+        <version>3.58.0</version>
+        <relativePath/>
     </parent>
-    <artifactId>plaintext-demo-tabelle</artifactId>
-    <name>plaintext-demo-tabelle</name>
+
+    <groupId>ch.plaintext</groupId>
+    <artifactId>plaintext-modul-demo</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>plaintext-modul-demo</name>
     <description>Demo table: every variant of the configurable table (plaintext-root pt:tableSettings)</description>
+    <url>https://github.com/Plaintext-Gmbh/plaintext-modul-demo</url>
+
+    <licenses>
+        <license>
+            <name>MPL-2.0</name>
+            <url>https://mozilla.org/MPL/2.0/</url>
+        </license>
+    </licenses>
+
+    <properties>
+        <!-- gleich der Parent-Version, sonst setzt der root-Parent sie auf project.version -->
+        <plaintext-root.version>3.58.0</plaintext-root.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>ch.plaintext.v2</groupId>
             <artifactId>plaintext-root-webapp</artifactId>
+            <version>${plaintext-root.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -29,4 +51,19 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <!-- Reposilite (LAN): root-v2-Artefakte und die eigenen Releases. -->
+        <repository>
+            <id>plaintext-nas</id>
+            <url>https://maven.plaintext.ch/releases</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>plaintext-nas</id>
+            <url>https://maven.plaintext.ch/releases</url>
+        </repository>
+    </distributionManagement>
 </project>
